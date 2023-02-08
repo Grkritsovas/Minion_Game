@@ -1,0 +1,33 @@
+def minion_game(string):
+    # your code goes here
+    vowels=['A','E','I','O','U']
+    vowel=[]
+    cons=[]
+    substring1=[]
+    ls=[]
+    Points1=0
+    Points2=0
+    for i in string:
+        if i not in vowels and i not in cons:
+            cons.append(i)
+        ls.append(i)
+        if i in vowels and i not in vowel:
+            vowel.append(i)
+    for j in cons:
+        for i,x in enumerate(ls):
+            if x==j:
+               Points1=Points1+ len(ls)-i
+    for j in vowel:
+        for i,x in enumerate(ls):
+            if x==j:
+                Points2=Points2+len(ls)-i
+    if Points1>Points2:
+        print('Stuart '+str(Points1))
+    elif Points1<Points2:
+        print('Kevin '+str(Points2))
+    else:
+        print('Draw')   
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
